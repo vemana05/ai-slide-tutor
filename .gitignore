@@ -1,0 +1,25 @@
+# secrets
+.env
+.env.*
+!.env.example
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# local data and generated files
+*.log
+.DS_Store
+pgdata/
+postgres-data/
+uploads/
+storage/
+exports/

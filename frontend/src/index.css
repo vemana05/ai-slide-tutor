@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+/* Design tokens — Section 8 of instructions.md */
+@theme {
+  --color-ink: #16241f;
+  --color-paper: #f6f2e7;
+  --color-marker-coral: #ff6a52;
+  --color-chalk-gold: #f2c14e;
+  --color-sage: #7bae7f;
+  --color-rust: #d65c5c;
+
+  --font-heading: "Fraunces", serif;
+  --font-body: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-ink text-paper font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-marker-coral);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .prose-explanation {
+    max-width: 75ch;
+  }
+
+  .prose-explanation p {
+    @apply mb-3 leading-relaxed;
+  }
+
+  .prose-explanation p:last-child {
+    @apply mb-0;
+  }
+
+  .prose-explanation strong {
+    @apply font-semibold text-chalk-gold;
+  }
+
+  .prose-explanation ul {
+    @apply mb-3 list-disc space-y-1.5 pl-5 marker:text-marker-coral;
+  }
+
+  .prose-explanation ol {
+    @apply mb-3 list-decimal space-y-1.5 pl-5 marker:text-marker-coral marker:font-semibold;
+  }
+
+  .prose-explanation h2,
+  .prose-explanation h3 {
+    @apply mb-2 mt-4 text-lg font-semibold text-chalk-gold;
+  }
+
+  .prose-explanation blockquote {
+    @apply my-3 rounded-md border-l-2 border-chalk-gold bg-chalk-gold/[0.08] px-4 py-2 text-paper/80;
+  }
+
+  .prose-explanation code {
+    @apply rounded bg-paper/10 px-1 py-0.5 font-mono text-[0.9em];
+  }
+
+  .prose-explanation pre {
+    @apply mb-3 overflow-x-auto rounded-md bg-ink/40 p-3;
+  }
+
+  .prose-explanation pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose-explanation .katex-display {
+    @apply my-3 overflow-x-auto rounded-md bg-paper/5 px-3 py-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
